@@ -1,6 +1,7 @@
 package com.whl.cloud.business.controller;
 
 import com.whl.cloud.business.service.BusinessService;
+import org.apache.seata.spring.annotation.GlobalTransactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -20,6 +21,7 @@ public class PurchaseRestController {
      * @param orderCount 数量
      * @return
      */
+    @GlobalTransactional
     @GetMapping("/purchase")
     public String purchase(@RequestParam("userId") String userId,
                            @RequestParam("commodityCode") String commodityCode,
